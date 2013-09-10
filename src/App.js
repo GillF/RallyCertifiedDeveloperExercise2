@@ -6,5 +6,11 @@ Ext.define('CustomApp', {
     },
 
     launch: function() {
+        this.add({
+            xtype:"rallycardboard",
+            cardConfig:{
+                xtype:"customcard"
+            }
+        });
     }
 });
