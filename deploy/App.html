@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Son of Excercise1</title>
+    <title>Exercise 2</title>
 
     <script type="text/javascript" src="/apps/2.0rc1/sdk.js"></script>
 
     <script type="text/javascript">
         Rally.onReady(function () {
-                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",items:{html:'<a href="https://help.rallydev.com/apps/2.0rc1/doc/#!/api/Rally.data.WsapiDataStore">Hint!<a>'},launch:function(){this.add({xtype:"rallycardboard",cardConfig:{xtype:"customcard"}})}});
-                Ext.define("App.MyCard",{extend:"Rally.ui.cardboard.Card",alias:"widget.customcard"});
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",items:{html:""},launch:function(){this.add({xtype:"rallycardboard",cardConfig:{xtype:"customcard"},columns:[{xtype:"rallycardboardcolumn",value:"Defined"},{xtype:"rallycardboardcolumn",value:"Completed"}]})}});
+                Ext.define("App.MyCard",{extend:"Rally.ui.cardboard.Card",alias:"widget.customcard",record:null,inheritableStatics:{getFetchFields:function(){return["Owner","FormattedID","Blocked","Ready","Name","Tags","DisplayColor","Parent"]}},initComponent:function(){this.record.get("Parent")?this.addClass("parented"):this.addClass("not-parented"),this.callParent(arguments)}});
 
             Rally.launchApp('CustomApp', {
-                name:"Son of Excercise1",
+                name:"Exercise 2",
 	            parentRepos:"ferentchak/RallyCertifiedDeveloperExercise1"
             });
 
@@ -25,6 +25,13 @@
      border-style:none;
 }
 
+
+.rui-card .artifact-color{
+    background-color: #35b2e4 !important;
+}
+.rui-card.parented .artifact-color{
+    background-color: #D08AAF !important;
+}
     </style>
 </head>
 <body></body>
